@@ -5,9 +5,6 @@ import re
 import sys
 from subprocess import Popen, PIPE
 
-# [TO-DO]: Use OCR package for scanned PDFs, e.g. https://pypi.python.org/pypi/pypdfocr
-# [TO-DO]: Support DjVu files with https://pypi.python.org/pypi/python-djvulibre/0.3.10
-
 
 # In the command line, the user should type
 #
