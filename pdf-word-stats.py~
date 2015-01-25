@@ -54,10 +54,10 @@ for line in proc.stdout:
     # Correct any LaTeX ligatures
     # https://docs.python.org/2/library/re.html#re.sub
     # [TO-DO]: switch to new regex package? https://pypi.python.org/pypi/regex
-    line = re.sub('ﬀ','ff',line)
-    line = re.sub('ﬁ','fi',line)
+    line = re.sub('ﬀ','ff', line)
+    line = re.sub('ﬁ',  'fi', line)
     line = re.sub('ﬃ','ffi',line)
-    line = re.sub('ﬂ','fl',line)
+    line = re.sub('ﬂ',  'fl', line)
     line = re.sub('ﬄ','ffl',line)
     
     # Get rid of newline characters
@@ -85,14 +85,14 @@ for line in proc.stdout:
 
     # Update pair frequencies using data from this line
     pair_list = []
-    for i in range(len(word_list)-1):
+    for i in range(len(word_list)-2):
         if is_relevant(word_list[i]) and is_relevant(word_list[i+1]):
             pair_list.append([word_list[i],word_list[i+1]])
     for pair in pair_list:
-        pair_as_string = pair[0] + " " + pair[1]
-        pair_freqs[pair_as_string] = pair_freqs.get(pair_as_string, 0) + 1
+        pair_as_word = pair[0] + " " + pair[1]
+        pair_freqs[pair_as_word] = pair_freqs.get(pair_as_word, 0) + 1
 
-    # [TO-DO]: Combine frequencies for plurals
+    # [TO-DO]: Combine freqs for plurals
 
 
 # Sort frequencies lowest to highest
